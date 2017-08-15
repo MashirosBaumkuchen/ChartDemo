@@ -1,8 +1,7 @@
 package com.example.admin.chartdemo.model;
 
-import android.content.Context;
+import android.graphics.Color;
 
-import com.example.admin.chartdemo.R;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -17,7 +16,10 @@ import java.util.List;
  */
 
 public class DataModel {
-    private DataModel instance;
+    public static final int[] COLORS = {
+            Color.rgb(94, 94, 94), Color.rgb(94, 94, 94), Color.rgb(94, 94, 94),
+            Color.rgb(94, 94, 94), Color.rgb(94, 94, 94)};
+
     private CallBack callBack;
 
     public DataModel(CallBack callBack) {
@@ -33,9 +35,9 @@ public class DataModel {
         entries.add(new BarEntry(4f, 40f));
         entries.add(new BarEntry(5f, 10f));
         BarDataSet set = new BarDataSet(entries, "BarDataSet");
-        set.setColors(ColorTemplate.VORDIPLOM_COLORS);
+        set.setColors(DataModel.COLORS);
         BarData data = new BarData(set);
-        data.setBarWidth(0.2f); // set custom bar width
+        data.setBarWidth(0.15f); // set custom bar width
         callBack.onSuccess(data);
     }
 

@@ -1,8 +1,10 @@
 package com.example.admin.chartdemo.view;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.WindowManager;
 
 import com.example.admin.chartdemo.contract.BarChartContract;
 import com.example.admin.chartdemo.formater.DecimaFromat;
@@ -31,6 +33,15 @@ public class BarChartActivity extends AppCompatActivity implements BarChartContr
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_barchart);
+
+        //当系统版本为4.4或者4.4以上时可以使用沉浸式状态栏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
+
         ButterKnife.bind(this);
         new BarChartPersenter(this);
         initChart();
@@ -62,8 +73,8 @@ public class BarChartActivity extends AppCompatActivity implements BarChartContr
         barChart.getAxisRight().setEnabled(false);// 取消右侧视图
 
         //TODO
-        barChart.getAxisLeft().setEnabled(false);
-        barChart.getXAxis().setEnabled(false);
+        barChart.getAxisLeft().setEnabled(false);// 取消左侧视图
+        barChart.getXAxis().setEnabled(false);// 取消横向视图
 
         barChart.setDoubleTapToZoomEnabled(false);// 取消双击方法事件
         barChart.setDragEnabled(false);// 取消拖动

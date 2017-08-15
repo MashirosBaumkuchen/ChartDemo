@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.BarChartActivity" />
+        <activity
+            android:name=".view.BarChartActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.BarChart1Activity" />
         <activity android:name=".view.MultipleBarChartActivity"></activity>
         <activity android:name=".view.ListViewChartActivity" />
