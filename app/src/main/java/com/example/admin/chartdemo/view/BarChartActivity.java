@@ -1,20 +1,27 @@
 package com.example.admin.chartdemo.view;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import com.example.admin.chartdemo.contract.BarChartContract;
 import com.example.admin.chartdemo.formater.DecimaFromat;
 import com.example.admin.chartdemo.formater.MyFormat;
 import com.example.admin.chartdemo.R;
+import com.example.admin.chartdemo.model.DataModel;
 import com.example.admin.chartdemo.persenter.BarChartPersenter;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,6 +35,9 @@ public class BarChartActivity extends AppCompatActivity implements BarChartContr
 
     @Bind(R.id.bar_chart)
     BarChart barChart;
+
+    @Bind(R.id.bar_chart_date)
+    Button date;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +79,10 @@ public class BarChartActivity extends AppCompatActivity implements BarChartContr
         leftAxis.setValueFormatter(new DecimaFromat());
         leftAxis.setAxisMinimum(0f); // this replaces setStartAtZero(true)
 
-        barChart.getLegend().setEnabled(false);// 取消图例
+        barChart.getLegend().setEnabled(true);// 取消图例
+        Legend legend = barChart.getLegend();
+        legend.setTextColor(Color.WHITE);
+        legend.setDirection(Legend.LegendDirection.LEFT_TO_RIGHT);
         barChart.getAxisRight().setEnabled(false);// 取消右侧视图
 
         //TODO

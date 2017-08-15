@@ -17,7 +17,6 @@ import java.util.List;
 
 public class DataModel {
     public static final int[] COLORS = {
-            Color.rgb(94, 94, 94), Color.rgb(94, 94, 94), Color.rgb(94, 94, 94),
             Color.rgb(94, 94, 94), Color.rgb(94, 94, 94)};
 
     private CallBack callBack;

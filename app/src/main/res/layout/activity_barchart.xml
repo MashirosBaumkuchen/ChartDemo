@@ -10,4 +10,14 @@
         android:layout_height="128dp"
         android:layout_centerVertical="true"
         android:clipToPadding="true" />
+
+    <TextView
+        android:id="@+id/bar_chart_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bar_chart"
+        android:gravity="center_horizontal"
+        android:textColor="#ffffff"
+        android:textSize="9sp"
+        android:text="2017/8/15" />
 </RelativeLayout>
