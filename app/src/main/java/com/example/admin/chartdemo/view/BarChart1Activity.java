@@ -57,6 +57,7 @@ public class BarChart1Activity extends AppCompatActivity implements AnotherBarCh
 
     @Override
     public void loadChart(BarData data) {
+        data.setBarWidth(1f);
         barChart.setData(data);
         barChart.setFitBars(true);
         barChart.invalidate();
